@@ -3,6 +3,21 @@ public class SinglyLinkedList {
     // SinglyLinkedList class will have ListNode as instance variable
     //private ListNode head; //this will be the head of the linkedList
 
+    //given list node head and integer data insert integer the at the beginning
+
+    public ListNode InsertAtBeginning(ListNode head, int data) {
+
+        ListNode newNode = new ListNode(data);
+
+        if (head == null) {
+            return newNode;
+        }
+
+        newNode.next = head;
+        head = newNode;
+        return newNode; // this head will be new head having new data
+    }
+
     // given a ListNode head, find the length of linked list
     public int length(ListNode head) {
 
@@ -73,5 +88,8 @@ public class SinglyLinkedList {
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
         singlyLinkedList.display(head);
         System.out.println("Length of Linked list is - " + singlyLinkedList.length(head));
+        ListNode newHead = singlyLinkedList.InsertAtBeginning(head, 15);
+        singlyLinkedList.display(newHead);
+        System.out.println("Length of Linked list is - " + singlyLinkedList.length(newHead));
     }
 }
