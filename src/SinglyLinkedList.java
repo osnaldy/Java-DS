@@ -11,14 +11,27 @@ public class SinglyLinkedList {
 
         //Then we need to create a constructor that will initialize a new node
 
-        public ListNode(int datas) {
+        public ListNode(int data) {
 
-            this.data = datas;
+            this.data = data;
             this.next = null;
-
         }
     }
     public static void main(String[] args) {
 
+        //Create a linked list
+        //10 --> 8 --> 1 --> 11 --> null
+        //10 as the head node of Linked List
+
+        ListNode head = new ListNode(10);
+        ListNode second = new ListNode(8);
+        ListNode thrid = new ListNode(1);
+        ListNode fourth = new ListNode(11);
+
+        //attach each node together to form a list
+        head.next = second; //10 --> 8
+        second.next = thrid; //10 --> 8 --> 1
+        thrid.next = fourth; //10 --> 8 --> 1 --> 11
+        fourth.next = null; //10 --> 8 --> 1 --> 11 --> null
     }
 }
