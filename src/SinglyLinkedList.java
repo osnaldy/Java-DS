@@ -3,6 +3,26 @@ public class SinglyLinkedList {
     // SinglyLinkedList class will have ListNode as instance variable
     //private ListNode head; //this will be the head of the linkedList
 
+    //Insert a new node at the end of the linked list
+
+    public ListNode insertAtEnd(ListNode head, int data) {
+
+        ListNode newNode = new ListNode(data);
+
+        if (head == null) {
+            return newNode;
+        }
+
+        ListNode current = head;
+
+        while (current.next != null) {
+
+            current = current.next;
+        }
+        current.next = newNode;
+        return head;
+    }
+
     //given list node head and integer data insert integer the at the beginning
 
     public ListNode InsertAtBeginning(ListNode head, int data) {
@@ -13,7 +33,7 @@ public class SinglyLinkedList {
             return newNode;
         }
 
-        newNode.next = head;
+        newNode.next = head; //points to the current head
         head = newNode;
         return newNode; // this head will be new head having new data
     }
@@ -83,7 +103,6 @@ public class SinglyLinkedList {
         second.next = thrid; //10 --> 8 --> 1
         thrid.next = fourth; //10 --> 8 --> 1 --> 11
         fourth.next = null; //10 --> 8 --> 1 --> 11 --> null
-
         //to text it, we create an object from the main class
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
         singlyLinkedList.display(head);
@@ -91,5 +110,7 @@ public class SinglyLinkedList {
         ListNode newHead = singlyLinkedList.InsertAtBeginning(head, 15);
         singlyLinkedList.display(newHead);
         System.out.println("Length of Linked list is - " + singlyLinkedList.length(newHead));
+        ListNode newHead2 = singlyLinkedList.insertAtEnd(newHead, 20);
+        singlyLinkedList.display(newHead2);
     }
 }
