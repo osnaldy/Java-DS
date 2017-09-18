@@ -3,8 +3,24 @@ public class SinglyLinkedList {
     // SinglyLinkedList class will have ListNode as instance variable
     //private ListNode head; //this will be the head of the linkedList
 
-    //Given a List write a function that prints elements it holds
+    // given a ListNode head, find the length of linked list
+    public int length(ListNode head) {
 
+        if (head == null) {
+            return 0;
+        }
+        //create cound variable to hold length
+        int count = 0;
+        ListNode current = head;
+        //loop each element and increment count until list ends
+        while (current != null) {
+            count ++;
+            current = current.next;
+        }
+        return count;
+    }
+
+    //Given a List write a function that prints elements it holds
     public void display(ListNode head) {
 
         //First we need to check if the head is null as they will not be any elements to print
@@ -56,5 +72,6 @@ public class SinglyLinkedList {
         //to text it, we create an object from the main class
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
         singlyLinkedList.display(head);
+        System.out.println("Length of Linked list is - " + singlyLinkedList.length(head));
     }
 }
