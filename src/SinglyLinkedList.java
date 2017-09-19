@@ -37,20 +37,58 @@ public class SinglyLinkedList {
         previous.next = newNode;
     }
 
+    //Insert Node at a given position
+
+    public ListNode insertAtPosition(ListNode head, int data, int position) {
+
+        int size = length(head);
+        System.out.println(size);
+
+        if (position > size + 1 || position < 1) {
+
+            System.out.println("Invalid position");
+            return head;
+        }
+
+        ListNode newNode = new ListNode(data);
+
+        if (position == 1) {
+
+            newNode.next = head;
+            return newNode;
+        }
+        else {
+            ListNode previous = head;
+            int count = 1;
+
+            while (count < position - 1) {
+
+                previous = previous.next;
+                count++;
+            }
+            ListNode current = previous.next;
+            newNode.next = current;
+            previous.next = newNode;
+            return head;
+        }
+    }
+
+
 
     //Delete node at the beginning of the list
+    /*
+    public void DeleteAtBeginning(ListNode head) {
 
-//    public ListNode DeleteAtBeginning(ListNode head) {
-//
-//        if (head == null) {
-//            return head;
-//        }
-//
-//        ListNode current = head;
-//        head = current.next;
-//        current.next = null;
-//        return head;
-//    }
+        if (head == null) {
+            return head;
+        }
+
+        ListNode current = head;
+        head = current.next;
+        current.next = null;
+        return head;
+    }
+    */
 
     //given list node head and integer data insert integer the at the beginning
 
@@ -135,13 +173,12 @@ public class SinglyLinkedList {
         //to text it, we create an object from the main class
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
         singlyLinkedList.display(head);
-        System.out.println("Length of Linked list is - " + singlyLinkedList.length(head));
-        ListNode newHead = singlyLinkedList.InsertAtBeginning(head, 15);
+        //System.out.println("Length of Linked list is - " + singlyLinkedList.length(head));
+        head = singlyLinkedList.insertAtPosition(head,7, 5);
+        singlyLinkedList.display(head);
+        /*System.out.println("Length of Linked list is - " + singlyLinkedList.length(newHead));
         singlyLinkedList.display(newHead);
-        System.out.println("Length of Linked list is - " + singlyLinkedList.length(newHead));
-        singlyLinkedList.insertAfter(second, 20);
-        singlyLinkedList.display(newHead);
-        //singlyLinkedList.DeleteAtBeginning(newHead2);
-        //singlyLinkedList.display(newHead2);
+        singlyLinkedList.DeleteAtBeginning(newHead2);
+        singlyLinkedList.display(newHead2); */
     }
 }
