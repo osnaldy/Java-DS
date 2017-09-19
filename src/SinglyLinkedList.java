@@ -23,6 +23,35 @@ public class SinglyLinkedList {
         return head;
     }
 
+    //Insert Node after position of a given node
+
+    public void insertAfter(ListNode previous, int data) {
+
+        if (previous == null) {
+
+            System.out.println("The given previous Node cant be null");
+        }
+
+        ListNode newNode = new ListNode(data);
+        newNode.next = previous.next;
+        previous.next = newNode;
+    }
+
+
+    //Delete node at the beginning of the list
+
+//    public ListNode DeleteAtBeginning(ListNode head) {
+//
+//        if (head == null) {
+//            return head;
+//        }
+//
+//        ListNode current = head;
+//        head = current.next;
+//        current.next = null;
+//        return head;
+//    }
+
     //given list node head and integer data insert integer the at the beginning
 
     public ListNode InsertAtBeginning(ListNode head, int data) {
@@ -110,7 +139,9 @@ public class SinglyLinkedList {
         ListNode newHead = singlyLinkedList.InsertAtBeginning(head, 15);
         singlyLinkedList.display(newHead);
         System.out.println("Length of Linked list is - " + singlyLinkedList.length(newHead));
-        ListNode newHead2 = singlyLinkedList.insertAtEnd(newHead, 20);
-        singlyLinkedList.display(newHead2);
+        singlyLinkedList.insertAfter(second, 20);
+        singlyLinkedList.display(newHead);
+        //singlyLinkedList.DeleteAtBeginning(newHead2);
+        //singlyLinkedList.display(newHead2);
     }
 }
