@@ -42,7 +42,6 @@ public class SinglyLinkedList {
     public ListNode insertAtPosition(ListNode head, int data, int position) {
 
         int size = length(head);
-        System.out.println(size);
 
         if (position > size + 1 || position < 1) {
 
@@ -73,22 +72,18 @@ public class SinglyLinkedList {
         }
     }
 
-
-
     //Delete node at the beginning of the list
-    /*
-    public void DeleteAtBeginning(ListNode head) {
+
+    public ListNode DeleteAtBeginning(ListNode head) {
 
         if (head == null) {
             return head;
         }
-
-        ListNode current = head;
-        head = current.next;
-        current.next = null;
-        return head;
+        ListNode temp = head;
+        head = head.next;
+        temp.next = null;
+        return temp;
     }
-    */
 
     //given list node head and integer data insert integer the at the beginning
 
@@ -173,9 +168,13 @@ public class SinglyLinkedList {
         //to text it, we create an object from the main class
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
         singlyLinkedList.display(head);
-        //System.out.println("Length of Linked list is - " + singlyLinkedList.length(head));
-        head = singlyLinkedList.insertAtPosition(head,7, 5);
+        ListNode first = singlyLinkedList.DeleteAtBeginning(head);
+        System.out.println(first.data);
         singlyLinkedList.display(head);
+        //System.out.println("Length of Linked list is - " + singlyLinkedList.length(head));
+        //head = singlyLinkedList.insertAtPosition(head,7, 5);
+        //singlyLinkedList.display(head);
+
         /*System.out.println("Length of Linked list is - " + singlyLinkedList.length(newHead));
         singlyLinkedList.display(newHead);
         singlyLinkedList.DeleteAtBeginning(newHead2);
