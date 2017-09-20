@@ -23,6 +23,27 @@ public class SinglyLinkedList {
         return head;
     }
 
+    //Delete the last Node from Linked List
+
+    public  ListNode deleteLast(ListNode head) {
+
+        if (head == null) {
+            return head;
+        }
+
+        ListNode last = head;
+        ListNode previousToLast = null;
+
+        while (last.next != null) {
+
+            previousToLast = last;
+            last.next = last;
+        }
+
+        previousToLast.next = null;
+        return last;
+    }
+
     //Insert Node after position of a given node
 
     public void insertAfter(ListNode previous, int data) {
@@ -168,9 +189,9 @@ public class SinglyLinkedList {
         //to text it, we create an object from the main class
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
         singlyLinkedList.display(head);
-        ListNode first = singlyLinkedList.DeleteAtBeginning(head);
-        System.out.println(first.data);
-        singlyLinkedList.display(head);
+        ListNode last = singlyLinkedList.deleteLast(head);
+        System.out.println(last);
+
         //System.out.println("Length of Linked list is - " + singlyLinkedList.length(head));
         //head = singlyLinkedList.insertAtPosition(head,7, 5);
         //singlyLinkedList.display(head);
