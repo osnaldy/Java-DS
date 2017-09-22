@@ -27,22 +27,22 @@ public class SinglyLinkedList {
 
     public  ListNode deleteLast(ListNode head) {
 
-        if (head == null) {
-            return head;
-        }
-
-        ListNode last = head;
         ListNode previousToLast = null;
+        if (head != null) {
 
-        while (last.next != null) {
+            ListNode last = head;
 
-            previousToLast = last;
-            last.next = last;
+            while (last.next != null) {
+
+                previousToLast = last;
+                last.next = last;
+            }
+        }
+        previousToLast.next = null;
+        return previousToLast;
+
         }
 
-        previousToLast.next = null;
-        return last;
-    }
 
     //Insert Node after position of a given node
 
