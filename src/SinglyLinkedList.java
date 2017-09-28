@@ -28,21 +28,21 @@ public class SinglyLinkedList {
     public  ListNode deleteLast(ListNode head) {
 
         ListNode previousToLast = null;
-        if (head != null) {
+        if (head == null) {
+            return head;
+        }
 
-            ListNode last = head;
+        ListNode last = head;
 
-            while (last.next != null) {
 
-                previousToLast = last;
-                last.next = last;
-            }
+        while (last.next != null)
+        {
+            previousToLast = last;
+            last = last.next;
         }
         previousToLast.next = null;
-        return previousToLast;
-
-        }
-
+        return last;
+    }
 
     //Insert Node after position of a given node
 
@@ -190,7 +190,8 @@ public class SinglyLinkedList {
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
         singlyLinkedList.display(head);
         ListNode last = singlyLinkedList.deleteLast(head);
-        System.out.println(last);
+        System.out.println(last.data);
+        singlyLinkedList.display(head);
 
         //System.out.println("Length of Linked list is - " + singlyLinkedList.length(head));
         //head = singlyLinkedList.insertAtPosition(head,7, 5);
