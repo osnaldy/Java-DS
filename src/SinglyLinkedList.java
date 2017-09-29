@@ -23,6 +23,45 @@ public class SinglyLinkedList {
         return head;
     }
 
+
+    //Delete a Node at a given position
+
+    public ListNode deleteNodeAtPosition(ListNode head, int position) {
+
+        int size = length(head);
+
+        if (position > size || position < 1) {
+            System.out.println("Invalid position was given");
+            return head;
+        }
+
+        if (position == 1) {
+
+            ListNode temp = head;
+            head.next = head;
+            temp.next = null;
+            return temp;
+        }
+        else {
+
+            ListNode previous = head;
+            int count = 1;
+
+            while (count < position - 1) {
+
+                previous = previous.next;
+                count ++;
+            }
+
+            ListNode current = previous.next;
+            previous.next = current.next;
+            current.next = null;
+            return current;
+        }
+
+
+    }
+
     //Delete the last Node from Linked List
 
     public  ListNode deleteLast(ListNode head) {
@@ -189,8 +228,8 @@ public class SinglyLinkedList {
         //to text it, we create an object from the main class
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
         singlyLinkedList.display(head);
-        ListNode last = singlyLinkedList.deleteLast(head);
-        System.out.println(last.data);
+        ListNode thirdNode = singlyLinkedList.deleteNodeAtPosition(head, 3);
+        System.out.println(thirdNode.data);
         singlyLinkedList.display(head);
 
         //System.out.println("Length of Linked list is - " + singlyLinkedList.length(head));
