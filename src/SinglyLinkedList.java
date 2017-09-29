@@ -23,6 +23,28 @@ public class SinglyLinkedList {
         return head;
     }
 
+    //Search for a an element in a linked list
+
+    public boolean searchNode(ListNode head, int searchKey) {
+
+        if (head == null) {
+
+            return false;
+        }
+
+        ListNode current = head;
+
+        while (current != null) {
+
+            if (current.data == searchKey) {
+
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
+
 
     //Delete a Node at a given position
 
@@ -231,6 +253,14 @@ public class SinglyLinkedList {
         ListNode thirdNode = singlyLinkedList.deleteNodeAtPosition(head, 3);
         System.out.println(thirdNode.data);
         singlyLinkedList.display(head);
+
+        if (singlyLinkedList.searchNode(head, 22)) {
+
+            System.out.println("Searched key was found");
+        }
+        else {
+            System.out.println("Searched key was NOT found!!!");
+        }
 
         //System.out.println("Length of Linked list is - " + singlyLinkedList.length(head));
         //head = singlyLinkedList.insertAtPosition(head,7, 5);
