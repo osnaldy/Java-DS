@@ -76,7 +76,7 @@ public class Arrays {
 
         String indexWithValue = "";
 
-        System.out.print("The Value was found in the following index(s) ");
+        System.out.println("The Value was found in the following index(s) ");
 
         for (int i = 0; i < arraySize; i++) {
 
@@ -88,6 +88,13 @@ public class Arrays {
 
                 indexWithValue += i + " ";
             }
+        }
+
+        if (!valueInArray) {
+
+            indexWithValue = "None";
+
+            System.out.print(indexWithValue);
         }
 
         return indexWithValue;
@@ -111,11 +118,11 @@ public class Arrays {
         Arrays theArray = new Arrays();
 
         theArray.generateRandomArray();
-        theArray.printArray();
+        //theArray.printArray();
         System.out.println(theArray.getValueAtIndex(0));
         System.out.println(theArray.doesArrayContainThisValue(18));
         theArray.deleteIndex(3);
-        theArray.printArray();
+        //theArray.printArray();
         theArray.insertValue(55);
         theArray.printArray();
         theArray.linearSearchForValue(12);
