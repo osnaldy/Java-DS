@@ -68,6 +68,31 @@ public class Arrays {
         return valueInArray;
     }
 
+    //Linear Search to find all matches inside the array
+
+    public String linearSearchForValue(int value) {
+
+        boolean valueInArray = false;
+
+        String indexWithValue = "";
+
+        System.out.print("The Value was found in the following index(s) ");
+
+        for (int i = 0; i < arraySize; i++) {
+
+            if (theArray[i] == value) {
+
+                valueInArray = true;
+
+                System.out.print(i + " ");
+
+                indexWithValue += i + " ";
+            }
+        }
+
+        return indexWithValue;
+    }
+
     //Function to print the array
 
     public void printArray() {
@@ -93,5 +118,6 @@ public class Arrays {
         theArray.printArray();
         theArray.insertValue(55);
         theArray.printArray();
+        theArray.linearSearchForValue(12);
     }
 }
