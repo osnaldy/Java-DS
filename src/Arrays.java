@@ -24,6 +24,22 @@ public class Arrays {
         return 0;
     }
 
+    //Function to check if array contains a value
+
+    public boolean doesArrayContainThisValue(int searchValue) {
+
+        boolean valueInArray = false;
+
+        for (int i = 0; i < arraySize; i++) {
+
+            if (theArray[i] == searchValue) {
+
+                valueInArray = true;
+            }
+        }
+        return valueInArray;
+    }
+
     //Function to print the array
 
     public void printArray() {
@@ -44,6 +60,7 @@ public class Arrays {
         theArray.generateRandomArray();
         theArray.printArray();
         System.out.println(theArray.getValueAtIndex(0));
+        System.out.println(theArray.doesArrayContainThisValue(18));
 
     }
 }
