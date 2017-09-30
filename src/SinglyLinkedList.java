@@ -273,8 +273,8 @@ public class SinglyLinkedList {
         //to text it, we create an object from the main class
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
         singlyLinkedList.display(head);
-        ListNode thirdNode = singlyLinkedList.deleteNodeAtPosition(head, 3);
-        System.out.println(thirdNode.data);
+        //ListNode thirdNode = singlyLinkedList.deleteNodeAtPosition(head, 3);
+        //System.out.println(thirdNode.data);
         singlyLinkedList.display(head);
 
         if (singlyLinkedList.searchNode(head, 22)) {
