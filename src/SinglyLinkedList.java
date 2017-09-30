@@ -45,6 +45,29 @@ public class SinglyLinkedList {
         return false;
     }
 
+    //Reverse Singly Linked List
+
+    public ListNode reverseLinkedList(ListNode head) {
+
+        if (head == null) {
+
+            return head;
+        }
+
+        ListNode current = head;
+        ListNode previous = null;
+        ListNode next = null;
+
+        while (current != null) {
+
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        return previous;
+    }
+
 
     //Delete a Node at a given position
 
@@ -261,6 +284,9 @@ public class SinglyLinkedList {
         else {
             System.out.println("Searched key was NOT found!!!");
         }
+
+        ListNode reverse = singlyLinkedList.reverseLinkedList(head);
+        singlyLinkedList.display(reverse);
 
         //System.out.println("Length of Linked list is - " + singlyLinkedList.length(head));
         //head = singlyLinkedList.insertAtPosition(head,7, 5);
