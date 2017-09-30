@@ -24,6 +24,21 @@ public class Arrays {
         return 0;
     }
 
+    //Function to delete a index and move the others values up
+
+    public void deleteIndex(int index) {
+
+        if (index < arraySize) {
+
+            for (int i = index; i < (arraySize - 1); i++) {
+
+                theArray[i] = theArray[i + 1];
+            }
+
+            arraySize --;
+        }
+    }
+
     //Function to check if array contains a value
 
     public boolean doesArrayContainThisValue(int searchValue) {
@@ -61,6 +76,8 @@ public class Arrays {
         theArray.printArray();
         System.out.println(theArray.getValueAtIndex(0));
         System.out.println(theArray.doesArrayContainThisValue(18));
+        theArray.deleteIndex(3);
+        theArray.printArray();
 
     }
 }
