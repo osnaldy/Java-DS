@@ -7,6 +7,7 @@ public class Arrays {
     private int arraySize  = 10;
 
     //generate a random number of values
+
     public void generateRandomArray() {
 
         for (int i = 0; i < arraySize; i++) {
@@ -36,6 +37,18 @@ public class Arrays {
             }
 
             arraySize --;
+        }
+    }
+
+    //Function to insert a value at the end of the array
+
+    public void insertValue(int value) {
+
+        if (arraySize < 50) {
+
+            theArray[arraySize] = value;
+
+            arraySize ++;
         }
     }
 
@@ -78,6 +91,7 @@ public class Arrays {
         System.out.println(theArray.doesArrayContainThisValue(18));
         theArray.deleteIndex(3);
         theArray.printArray();
-
+        theArray.insertValue(55);
+        theArray.printArray();
     }
 }
