@@ -15,6 +15,15 @@ public class Arrays {
         }
     }
 
+    // Function to get value by its index
+
+    public int getValueAtIndex(int index) {
+
+        if (index < arraySize)
+            return theArray[index];
+        return 0;
+    }
+
     //Function to print the array
 
     public void printArray() {
@@ -34,6 +43,7 @@ public class Arrays {
 
         theArray.generateRandomArray();
         theArray.printArray();
+        System.out.println(theArray.getValueAtIndex(0));
 
     }
 }
