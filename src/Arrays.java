@@ -100,6 +100,22 @@ public class Arrays {
         return indexWithValue;
     }
 
+    //Bubble Sort Algorithm
+
+    public void bubbleSort() {
+
+        for (int i = arraySize - 1; i > 1; i-- ) {
+
+            for (int j = 0; j < i; j++) {
+
+                if (theArray[j] > theArray[j + 1]) {
+
+                    swapValue(j, j + 1);
+                }
+            }
+        }
+    }
+
     //Function to print the array
 
     public void printArray() {
