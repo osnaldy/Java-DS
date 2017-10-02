@@ -100,6 +100,15 @@ public class Arrays {
         return indexWithValue;
     }
 
+    // Function to swap values
+
+    public void swapValue(int indexOne, int indexTwo) {
+
+        int temp = theArray[indexOne];
+        theArray[indexOne] = theArray[indexTwo];
+        theArray[indexTwo] = temp;
+    }
+
     //Bubble Sort Algorithm
 
     public void bubbleSort() {
@@ -110,7 +119,7 @@ public class Arrays {
 
                 if (theArray[j] > theArray[j + 1]) {
 
-                    swapValue(j, j + 1);
+                    swapValue(j, j+1);
                 }
             }
         }
@@ -140,6 +149,7 @@ public class Arrays {
         theArray.deleteIndex(3);
         //theArray.printArray();
         theArray.insertValue(55);
+        theArray.bubbleSort();
         theArray.printArray();
         theArray.linearSearchForValue(12);
     }
