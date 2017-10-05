@@ -125,6 +125,33 @@ public class Arrays {
         }
     }
 
+    //Binary search
+
+    public void binarySearchForValue(int value){
+
+        int lowIndex = 0;
+        int highIndex = arraySize - 1;
+
+        while (lowIndex <= highIndex) {
+
+            int middleIndex = (lowIndex + highIndex) / 2;
+
+            if (theArray[middleIndex] < value)
+                lowIndex = middleIndex + 1;
+            else if (theArray[middleIndex] > value)
+                highIndex = middleIndex - 1;
+
+            else {
+
+                System.out.println("found a match for " + value + " at index " + middleIndex);
+
+                lowIndex = highIndex + 1;
+            }
+
+        }
+
+    }
+
     //Function to print the array
 
     public void printArray() {
@@ -150,6 +177,7 @@ public class Arrays {
         //theArray.printArray();
         theArray.insertValue(55);
         theArray.bubbleSort();
+        theArray.binarySearchForValue(11);
         theArray.printArray();
         theArray.linearSearchForValue(12);
     }
