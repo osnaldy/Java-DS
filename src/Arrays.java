@@ -125,6 +125,27 @@ public class Arrays {
         }
     }
 
+    //Selection Sort Algorithm
+
+    public void selectionSort() {
+
+        for (int x = 0; x < arraySize; x++) {
+
+            int minimum = x;
+
+            for (int y = x; y < arraySize; y++) {
+
+                if (theArray[minimum] > theArray[y]) {
+
+                    minimum = y;
+                }
+            }
+
+            swapValue(minimum, x);
+        }
+    }
+
+
     //Binary search
 
     public void binarySearchForValue(int value){
@@ -176,7 +197,7 @@ public class Arrays {
         theArray.deleteIndex(3);
         //theArray.printArray();
         theArray.insertValue(55);
-        theArray.bubbleSort();
+        theArray.selectionSort();
         theArray.binarySearchForValue(11);
         theArray.printArray();
         theArray.linearSearchForValue(12);
