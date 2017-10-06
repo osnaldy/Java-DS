@@ -86,8 +86,7 @@ public class SinglyLinkedList {
             head.next = head;
             temp.next = null;
             return temp;
-        }
-        else {
+        } else {
 
             ListNode previous = head;
             int count = 1;
@@ -95,7 +94,7 @@ public class SinglyLinkedList {
             while (count < position - 1) {
 
                 previous = previous.next;
-                count ++;
+                count++;
             }
 
             ListNode current = previous.next;
@@ -109,7 +108,7 @@ public class SinglyLinkedList {
 
     //Delete the last Node from Linked List
 
-    public  ListNode deleteLast(ListNode head) {
+    public ListNode deleteLast(ListNode head) {
 
         ListNode previousToLast = null;
         if (head == null) {
@@ -119,8 +118,7 @@ public class SinglyLinkedList {
         ListNode last = head;
 
 
-        while (last.next != null)
-        {
+        while (last.next != null) {
             previousToLast = last;
             last = last.next;
         }
@@ -160,8 +158,7 @@ public class SinglyLinkedList {
 
             newNode.next = head;
             return newNode;
-        }
-        else {
+        } else {
             ListNode previous = head;
             int count = 1;
 
@@ -216,19 +213,39 @@ public class SinglyLinkedList {
         ListNode current = head;
         //loop each element and increment count until list ends
         while (current != null) {
-            count ++;
+            count++;
             current = current.next;
         }
         return count;
     }
+
+
+    public int KthToLast(int n, ListNode head) {
+
+        ListNode current = head;
+
+        int len = length(current);
+
+        int passes = len - n;
+
+        int count = 0;
+
+        while (count != passes) {
+
+            current = current.next;
+            count ++;
+        }
+
+        return current.data;
+    }
+
 
     //Given a List write a function that prints elements it holds
     public void display(ListNode head) {
 
         //First we need to check if the head is null as they will not be any elements to print
 
-        if (head == null)
-        {
+        if (head == null) {
             return;
         }
         ListNode current = head;
@@ -240,6 +257,7 @@ public class SinglyLinkedList {
         }
         System.out.println(current); // here it will be null
     }
+
     //It contains a static Inner class ListNode
     private static class ListNode {
 
@@ -254,6 +272,7 @@ public class SinglyLinkedList {
             this.next = null;
         }
     }
+
     public static void main(String[] args) {
 
         //Create a linked list
@@ -273,6 +292,8 @@ public class SinglyLinkedList {
         //to text it, we create an object from the main class
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
         singlyLinkedList.display(head);
+
+        System.out.println(singlyLinkedList.KthToLast(2, head));
         //ListNode thirdNode = singlyLinkedList.deleteNodeAtPosition(head, 3);
         //System.out.println(thirdNode.data);
         singlyLinkedList.display(head);
@@ -280,8 +301,7 @@ public class SinglyLinkedList {
         if (singlyLinkedList.searchNode(head, 22)) {
 
             System.out.println("Searched key was found");
-        }
-        else {
+        } else {
             System.out.println("Searched key was NOT found!!!");
         }
 

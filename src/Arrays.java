@@ -141,7 +141,7 @@ public class Arrays {
                 }
             }
 
-            swapValue(minimum, x);
+            swapValue(x, minimum);
         }
     }
 
