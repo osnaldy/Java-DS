@@ -219,6 +219,7 @@ public class SinglyLinkedList {
         return count;
     }
 
+    //Function to return the Kth element to last in the linked list.
 
     public int KthToLast(int n, ListNode head) {
 
@@ -239,6 +240,21 @@ public class SinglyLinkedList {
         return current.data;
     }
 
+    // return the sum of a Linked list then return it's value
+
+    public int sumNodesInLinkedList(ListNode head) {
+
+        ListNode current = head;
+        int carry = 0;
+
+        while (current != null) {
+
+            carry += current.data;
+            current = current.next;
+        }
+
+        return carry;
+    }
 
     //Given a List write a function that prints elements it holds
     public void display(ListNode head) {
@@ -279,34 +295,54 @@ public class SinglyLinkedList {
         //10 --> 8 --> 1 --> 11 --> null
         //10 as the head node of Linked List
 
-        ListNode head = new ListNode(10);
-        ListNode second = new ListNode(8);
-        ListNode thrid = new ListNode(1);
-        ListNode fourth = new ListNode(11);
+        ListNode head = new ListNode(7);
+        ListNode second = new ListNode(1);
+        ListNode third = new ListNode(6);
+        //ListNode fourth = new ListNode(11);
+
+        ListNode head2 = new ListNode(5);
+        ListNode second2 = new ListNode(9);
+        ListNode third2 = new ListNode(2);
+        //ListNode fourth2 = new ListNode(1);
 
         //attach each node together to form a list
         head.next = second; //10 --> 8
-        second.next = thrid; //10 --> 8 --> 1
-        thrid.next = fourth; //10 --> 8 --> 1 --> 11
-        fourth.next = null; //10 --> 8 --> 1 --> 11 --> null
+        second.next = third; //10 --> 8 --> 1
+        third.next = null; //10 --> 8 --> 1 --> 11
+        //fourth.next = null; //10 --> 8 --> 1 --> 11 --> null
+
+        //attach each node2 together to form a list
+        head2.next = second2;
+        second2.next = third2;
+        third2.next = null;
+        //fourth2.next = null;
+
         //to text it, we create an object from the main class
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
         singlyLinkedList.display(head);
+        singlyLinkedList.display(head2);
 
-        System.out.println(singlyLinkedList.KthToLast(2, head));
-        //ListNode thirdNode = singlyLinkedList.deleteNodeAtPosition(head, 3);
-        //System.out.println(thirdNode.data);
-        singlyLinkedList.display(head);
+//        System.out.println(singlyLinkedList.KthToLast(2, head));
+//        ListNode thirdNode = singlyLinkedList.deleteNodeAtPosition(head, 3);
+//        System.out.println(thirdNode.data);
+//        singlyLinkedList.display(head);
 
-        if (singlyLinkedList.searchNode(head, 22)) {
+        int h3 = singlyLinkedList.sumNodesInLinkedList(head2);
+        System.out.println(h3);
+        System.out.println(singlyLinkedList.sumNodesInLinkedList(head));
 
-            System.out.println("Searched key was found");
-        } else {
-            System.out.println("Searched key was NOT found!!!");
-        }
+//        if (singlyLinkedList.searchNode(head, 22)) {
+//
+//            System.out.println("Searched key was found");
+//        } else {
+//            System.out.println("Searched key was NOT found!!!");
+//        }
 
-        ListNode reverse = singlyLinkedList.reverseLinkedList(head);
-        singlyLinkedList.display(reverse);
+//        ListNode reverse = singlyLinkedList.reverseLinkedList(head);
+//        singlyLinkedList.display(reverse);
+
+//        ListNode h3 = singlyLinkedList.add(head, head2);
+//        singlyLinkedList.display(h3);
 
         //System.out.println("Length of Linked list is - " + singlyLinkedList.length(head));
         //head = singlyLinkedList.insertAtPosition(head,7, 5);
