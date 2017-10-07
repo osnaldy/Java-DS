@@ -103,7 +103,6 @@ public class SinglyLinkedList {
             return current;
         }
 
-
     }
 
     //Delete the last Node from Linked List
