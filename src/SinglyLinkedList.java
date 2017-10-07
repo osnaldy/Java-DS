@@ -256,6 +256,42 @@ public class SinglyLinkedList {
         return carry;
     }
 
+    public ListNode addTwoLinkedListInReverseOrder(ListNode head1, ListNode head2) {
+
+        ListNode newHead = new ListNode(0);
+        ListNode current1 = head1;
+        ListNode current2 = head2;
+        ListNode current3 = newHead;
+        int carry = 0;
+
+        while (current1 != null || current2 != null) {
+
+            if (current1 != null) {
+
+                carry += current1.data;
+                current1 = current1.next;
+            }
+
+            if (current2 != null) {
+
+                carry += current2.data;
+                current2 = current2.next;
+            }
+
+            current3.next = new ListNode(carry%10);
+            current3 = current3.next;
+            carry /= 10;
+
+            if (carry == 1) {
+
+                current3.next = new ListNode(1);
+            }
+        }
+
+        return newHead.next;
+    }
+
+
     //Given a List write a function that prints elements it holds
     public void display(ListNode head) {
 
@@ -327,9 +363,8 @@ public class SinglyLinkedList {
 //        System.out.println(thirdNode.data);
 //        singlyLinkedList.display(head);
 
-        int h3 = singlyLinkedList.sumNodesInLinkedList(head2);
-        System.out.println(h3);
-        System.out.println(singlyLinkedList.sumNodesInLinkedList(head));
+//        int h3 = singlyLinkedList.sumNodesInLinkedList(head2);
+//        System.out.println(h3);
 
 //        if (singlyLinkedList.searchNode(head, 22)) {
 //
@@ -341,8 +376,8 @@ public class SinglyLinkedList {
 //        ListNode reverse = singlyLinkedList.reverseLinkedList(head);
 //        singlyLinkedList.display(reverse);
 
-//        ListNode h3 = singlyLinkedList.add(head, head2);
-//        singlyLinkedList.display(h3);
+        ListNode h5 = singlyLinkedList.addTwoLinkedListInReverseOrder(head, head2);
+        singlyLinkedList.display(h5);
 
         //System.out.println("Length of Linked list is - " + singlyLinkedList.length(head));
         //head = singlyLinkedList.insertAtPosition(head,7, 5);
