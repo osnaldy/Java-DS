@@ -4,7 +4,48 @@ public class SinglyLinkedList {
     //private ListNode head; //this will be the head of the linkedList
 
     //Insert a new node at the end of the linked list
-    
+
+    // Function to sort a linked list
+
+    public ListNode sortingMethod(ListNode head) {
+
+        ListNode current = head;
+
+        while (current !=  null) {
+
+            ListNode holder = current.next;
+
+            while (holder != null) {
+
+                if (current.data > holder.data)
+                {
+                    int temp = current.data;
+                    current.data = holder.data;
+                    holder.data = temp;
+                }
+
+                holder = holder.next;
+            }
+            current = current.next;
+        }
+
+//        for (ListNode current = head; current != null; current = current.next) {
+//
+//            for (ListNode holder = current.next; holder != null; holder = holder.next) {
+//
+//                if (current.data > holder.data) {
+//
+//                    int temp = current.data;
+//                    current.data = holder.data;
+//                    holder.data = temp;
+//                }
+//
+//            }
+//        }
+
+        return head;
+    }
+
     public ListNode insertAtEnd(ListNode head, int data) {
 
         ListNode newNode = new ListNode(data);
@@ -354,10 +395,11 @@ public class SinglyLinkedList {
         //10 --> 8 --> 1 --> 11 --> null
         //10 as the head node of Linked List
 
-        ListNode head = new ListNode(7);
-        ListNode second = new ListNode(1);
-        ListNode third = new ListNode(6);
-        //ListNode fourth = new ListNode(11);
+        ListNode head = new ListNode(12);
+        ListNode second = new ListNode(4);
+        ListNode third = new ListNode(14);
+        ListNode fourth = new ListNode(3);
+        ListNode fifth = new ListNode(10);
 
         ListNode head2 = new ListNode(5);
         ListNode second2 = new ListNode(9);
@@ -367,7 +409,9 @@ public class SinglyLinkedList {
         //attach each node together to form a list
         head.next = second; //10 --> 8
         second.next = third; //10 --> 8 --> 1
-        third.next = null; //10 --> 8 --> 1 --> 11
+        third.next = fourth; //10 --> 8 --> 1 --> 11
+        fourth.next = fifth;
+        fifth.next = null;
         //fourth.next = null; //10 --> 8 --> 1 --> 11 --> null
 
         //attach each node2 together to form a list
@@ -381,7 +425,10 @@ public class SinglyLinkedList {
         singlyLinkedList.display(head);
         //singlyLinkedList.display(head2);
 
-        System.out.println(singlyLinkedList.kthToLastUsingToPointers(head, 3));
+        ListNode sorting = singlyLinkedList.sortingMethod(head);
+        singlyLinkedList.display(sorting);
+
+//        System.out.println(singlyLinkedList.kthToLastUsingToPointers(head, 3));
 //        ListNode thirdNode = singlyLinkedList.deleteNodeAtPosition(head, 3);
 //        System.out.println(thirdNode.data);
 //        singlyLinkedList.display(head);
