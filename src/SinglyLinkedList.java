@@ -4,7 +4,7 @@ public class SinglyLinkedList {
     //private ListNode head; //this will be the head of the linkedList
 
     //Insert a new node at the end of the linked list
-
+    
     public ListNode insertAtEnd(ListNode head, int data) {
 
         ListNode newNode = new ListNode(data);
@@ -218,6 +218,30 @@ public class SinglyLinkedList {
         return count;
     }
 
+    // Function to find the kth to last element using two pointer
+
+    public int kthToLastUsingToPointers(ListNode head, int n) {
+
+        ListNode pointerP = head;
+        ListNode pointerQ = head;
+
+        int position = 1;
+
+        while (position <= n - 1) {
+
+            pointerP = pointerP.next;
+            position++;
+        }
+
+        while (pointerP.next != null) {
+
+            pointerP = pointerP.next;
+            pointerQ = pointerQ.next;
+        }
+        return pointerQ.data;
+
+    }
+
     //Function to return the Kth element to last in the linked list.
 
     public int KthToLast(int n, ListNode head) {
@@ -355,9 +379,9 @@ public class SinglyLinkedList {
         //to text it, we create an object from the main class
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
         singlyLinkedList.display(head);
-        singlyLinkedList.display(head2);
+        //singlyLinkedList.display(head2);
 
-//        System.out.println(singlyLinkedList.KthToLast(2, head));
+        System.out.println(singlyLinkedList.kthToLastUsingToPointers(head, 3));
 //        ListNode thirdNode = singlyLinkedList.deleteNodeAtPosition(head, 3);
 //        System.out.println(thirdNode.data);
 //        singlyLinkedList.display(head);
@@ -375,8 +399,8 @@ public class SinglyLinkedList {
 //        ListNode reverse = singlyLinkedList.reverseLinkedList(head);
 //        singlyLinkedList.display(reverse);
 
-        ListNode h5 = singlyLinkedList.addTwoLinkedListInReverseOrder(head, head2);
-        singlyLinkedList.display(h5);
+        //ListNode h5 = singlyLinkedList.addTwoLinkedListInReverseOrder(head, head2);
+        //singlyLinkedList.display(h5);
 
         //System.out.println("Length of Linked list is - " + singlyLinkedList.length(head));
         //head = singlyLinkedList.insertAtPosition(head,7, 5);
