@@ -64,6 +64,28 @@ public class SinglyLinkedList {
         return head;
     }
 
+    // delete duplicates from a sorted linked list
+
+    public ListNode deleteFromSorted(ListNode head) {
+
+        ListNode current = head;
+        ListNode holder = null;
+
+        while (current != null && current.next != null) {
+
+            if (current.data == current.next.data) {
+
+                holder = current.next.next;
+                current.next = holder;
+            }
+            else {
+
+                current = current.next;
+            }
+        }
+        return head;
+    }
+
     //Search for a an element in a linked list
 
     public boolean searchNode(ListNode head, int searchKey) {
@@ -404,6 +426,8 @@ public class SinglyLinkedList {
         ListNode head2 = new ListNode(5);
         ListNode second2 = new ListNode(9);
         ListNode third2 = new ListNode(2);
+        ListNode fourth2 = new ListNode(5);
+        ListNode fifth2 = new ListNode(9);
         //ListNode fourth2 = new ListNode(1);
 
         //attach each node together to form a list
@@ -417,7 +441,9 @@ public class SinglyLinkedList {
         //attach each node2 together to form a list
         head2.next = second2;
         second2.next = third2;
-        third2.next = null;
+        third2.next = fourth2;
+        fourth2.next = fifth2;
+        fifth2.next = null;
         //fourth2.next = null;
 
         //to text it, we create an object from the main class
@@ -425,8 +451,10 @@ public class SinglyLinkedList {
         singlyLinkedList.display(head);
         //singlyLinkedList.display(head2);
 
-        ListNode sorting = singlyLinkedList.sortingMethod(head);
+        ListNode sorting = singlyLinkedList.sortingMethod(head2);
         singlyLinkedList.display(sorting);
+        ListNode deleteDup = singlyLinkedList.deleteFromSorted(sorting);
+        singlyLinkedList.display(deleteDup);
 
 //        System.out.println(singlyLinkedList.kthToLastUsingToPointers(head, 3));
 //        ListNode thirdNode = singlyLinkedList.deleteNodeAtPosition(head, 3);
