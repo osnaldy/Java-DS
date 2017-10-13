@@ -3,8 +3,6 @@ public class SinglyLinkedList {
     // SinglyLinkedList class will have ListNode as instance variable
     //private ListNode head; //this will be the head of the linkedList
 
-    //Insert a new node at the end of the linked list
-
     // Function to sort a linked list
 
     public ListNode sortingMethod(ListNode head) {
@@ -46,6 +44,7 @@ public class SinglyLinkedList {
         return head;
     }
 
+    //Insert a new node at the end of the linked list
     public ListNode insertAtEnd(ListNode head, int data) {
 
         ListNode newNode = new ListNode(data);
@@ -61,6 +60,39 @@ public class SinglyLinkedList {
             current = current.next;
         }
         current.next = newNode;
+        return head;
+    }
+
+    // delete duplicates from unsorted linked list
+
+    public ListNode deleteFromUnsorted(ListNode head) {
+
+        ListNode current = head;
+
+        if (head == null) {
+            return head;
+        }
+
+        while (current != null) {
+
+            ListNode curr = current;
+
+            while (curr.next != null) {
+
+                if (curr.next.data == current.data) {
+
+                    curr.next = curr.next.next;
+
+                }
+                else {
+
+                    curr = curr.next;
+                }
+
+            }
+
+            current = current.next;
+        }
         return head;
     }
 
@@ -426,7 +458,7 @@ public class SinglyLinkedList {
         ListNode head2 = new ListNode(5);
         ListNode second2 = new ListNode(9);
         ListNode third2 = new ListNode(2);
-        ListNode fourth2 = new ListNode(5);
+        ListNode fourth2 = new ListNode(9);
         ListNode fifth2 = new ListNode(9);
         //ListNode fourth2 = new ListNode(1);
 
@@ -451,11 +483,8 @@ public class SinglyLinkedList {
         singlyLinkedList.display(head);
         //singlyLinkedList.display(head2);
 
-        ListNode sorting = singlyLinkedList.sortingMethod(head2);
-        singlyLinkedList.display(sorting);
-        ListNode deleteDup = singlyLinkedList.deleteFromSorted(sorting);
-        singlyLinkedList.display(deleteDup);
-
+        ListNode reverse = singlyLinkedList.deleteFromUnsorted(head2);
+        singlyLinkedList.display(reverse);
 //        System.out.println(singlyLinkedList.kthToLastUsingToPointers(head, 3));
 //        ListNode thirdNode = singlyLinkedList.deleteNodeAtPosition(head, 3);
 //        System.out.println(thirdNode.data);
